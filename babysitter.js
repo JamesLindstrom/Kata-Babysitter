@@ -1,10 +1,16 @@
 var babysit = {
-	//5PM is the earliest time the babysitter will start.
-	//4AM is the latest time the babysitter will end.
-	earliestStart: 5,
-	latestEnd: 16,
+	init : function(){
+		//Set the earliest start time and latest end time.
+		babysit.earliestStart = babysit.timeStrToHourNum('5PM');
+		babysit.latestEnd = babysit.timeStrToHourNum('4AM');
+	},
 	
-	//Converts a string the represents a time (eg. "5PM") to an hour number that will be used by the program, starting with babysit.earliestStart as 0.
+	//Hourly rates
+	beforeBedRate: 12,
+	afterBedRate: 8,
+	afterMidnightRate: 16,
+	
+	//Converts a string the represents a time (eg. "5PM") to an hour number that will be used by the program.
 	timeStrToHourNum : function(timeStr){
 		var hours = parseInt(timeStr);
 		
@@ -15,10 +21,10 @@ var babysit = {
 	},
 	
 	calcPay : function(startTimeStr, endTimeStr, bedTimeStr = endTimeStr){
-		var startTime = babysit.timeStrToHourNum(startTimeStr);
-		var endTime = babysit.timeStrToHourNum(endTimeStr);
-		var bedTime = babysit.timeStrToHourNum(bedTimeStr);
-		var midnight = 12;
+		var startTime = babysit.timeStrToHourNum(startTimeStr),
+			endTime = babysit.timeStrToHourNum(endTimeStr),
+			bedTime = babysit.timeStrToHourNum(bedTimeStr),
+			midnight = 12;
 		
 		//Check for bad inputs.
 		var error = "";
@@ -31,10 +37,15 @@ var babysit = {
 		
 		//If the end time is after midnight, it must be factored into the calculation.
 		if(endTime > midnight){
-			dollars = (bedTime - startTime) * 12 + (midnight - bedTime) * 8 + (endTime - midnight) * 16;
+			dollars = 	(bedTime - startTime) * babysit.beforeBedRate + 
+						(midnight - bedTime) * babysit.afterBedRate + 
+						(endTime - midnight) * babysit.afterMidnightRate;
 		}else{
-			dollars = (bedTime - startTime) * 12 + (endTime - bedTime) * 8;
+			dollars = 	(bedTime - startTime) * babysit.beforeBedRate + 
+						(endTime - bedTime) * babysit.afterBedRate;
 		}
 		return dollars;
 	}
 };
+
+babysit.init();
