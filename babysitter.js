@@ -3,8 +3,8 @@ var babysit = {
 	timeStrToHourNum(timeStr){
 		var hours = parseInt(timeStr) - 5;
 		
-		//If hours are in the AM, add 12.
-		if(timeStr.search('AM') > 0){hours += 12}
+		//If hours are in the AM (and it is not 12AM), add 12.
+		if(timeStr.search('AM') > 0 && parseInt(timeStr) != 12){hours += 12}
 		
 		return hours;
 	}
