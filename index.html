@@ -1,16 +1,108 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
-  <title>Babysitter</title>
-  <link rel="stylesheet" href="https://code.jquery.com/qunit/qunit-2.0.1.css">
+	<meta charset="utf-8">
+	<title>Babysitter</title>
+	<link rel="stylesheet" href="https://code.jquery.com/qunit/qunit-2.0.1.css">
+	<link rel="stylesheet" type="text/css" href="main.css">
 </head>
 <body>
-  <div id="qunit"></div>
-  <div id="qunit-fixture"></div>
-  <script src="babysitter.js"></script>
-  <script src="https://code.jquery.com/qunit/qunit-2.0.1.js"></script>
-  <script src="test.js">
+	<div id="wrapper">
+		<h1>Kata - Babysitter</h1>
+		<p>* required</p>
+		<select name="start" id="start">
+			<option value="" selected disabled>(select a start time) *</option>
+			<option value="12PM">12:00 PM</option>
+			<option value="1PM">1:00 PM</option>
+			<option value="2PM">2:00 PM</option>
+			<option value="3PM">3:00 PM</option>
+			<option value="4PM">4:00 PM</option>
+			<option value="5PM">5:00 PM</option>
+			<option value="6PM">6:00 PM</option>
+			<option value="7PM">7:00 PM</option>
+			<option value="8PM">8:00 PM</option>
+			<option value="9PM">9:00 PM</option>
+			<option value="10PM">10:00 PM</option>
+			<option value="11PM">11:00 PM</option>
+			<option value="12AM">12:00 AM</option>
+			<option value="1AM">1:00 AM</option>
+			<option value="2AM">2:00 AM</option>
+			<option value="3AM">3:00 AM</option>
+			<option value="4AM">4:00 AM</option>
+			<option value="5AM">5:00 AM</option>
+			<option value="6AM">6:00 AM</option>
+			<option value="7AM">7:00 AM</option>
+			<option value="8AM">8:00 AM</option>
+			<option value="9AM">9:00 AM</option>
+			<option value="10AM">10:00 AM</option>
+			<option value="11AM">11:00 AM</option>
+		</select>
+		<br>
+		<select name="stop" id="stop">
+			<option value="" selected disabled>(select a stop time) *</option>
+			<option value="12PM">12:00 PM</option>
+			<option value="1PM">1:00 PM</option>
+			<option value="2PM">2:00 PM</option>
+			<option value="3PM">3:00 PM</option>
+			<option value="4PM">4:00 PM</option>
+			<option value="5PM">5:00 PM</option>
+			<option value="6PM">6:00 PM</option>
+			<option value="7PM">7:00 PM</option>
+			<option value="8PM">8:00 PM</option>
+			<option value="9PM">9:00 PM</option>
+			<option value="10PM">10:00 PM</option>
+			<option value="11PM">11:00 PM</option>
+			<option value="12AM">12:00 AM</option>
+			<option value="1AM">1:00 AM</option>
+			<option value="2AM">2:00 AM</option>
+			<option value="3AM">3:00 AM</option>
+			<option value="4AM">4:00 AM</option>
+			<option value="5AM">5:00 AM</option>
+			<option value="6AM">6:00 AM</option>
+			<option value="7AM">7:00 AM</option>
+			<option value="8AM">8:00 AM</option>
+			<option value="9AM">9:00 AM</option>
+			<option value="10AM">10:00 AM</option>
+			<option value="11AM">11:00 AM</option>
+		</select>
+		<br>
+		<select name="bed" id="bed">
+			<option value="" selected disabled>(select a bed time)</option>
+			<option value="12PM">12:00 PM</option>
+			<option value="1PM">1:00 PM</option>
+			<option value="2PM">2:00 PM</option>
+			<option value="3PM">3:00 PM</option>
+			<option value="4PM">4:00 PM</option>
+			<option value="5PM">5:00 PM</option>
+			<option value="6PM">6:00 PM</option>
+			<option value="7PM">7:00 PM</option>
+			<option value="8PM">8:00 PM</option>
+			<option value="9PM">9:00 PM</option>
+			<option value="10PM">10:00 PM</option>
+			<option value="11PM">11:00 PM</option>
+			<option value="12AM">12:00 AM</option>
+			<option value="1AM">1:00 AM</option>
+			<option value="2AM">2:00 AM</option>
+			<option value="3AM">3:00 AM</option>
+			<option value="4AM">4:00 AM</option>
+			<option value="5AM">5:00 AM</option>
+			<option value="6AM">6:00 AM</option>
+			<option value="7AM">7:00 AM</option>
+			<option value="8AM">8:00 AM</option>
+			<option value="9AM">9:00 AM</option>
+			<option value="10AM">10:00 AM</option>
+			<option value="11AM">11:00 AM</option>
+		</select>
+		<br>
+		<button id="calculate">Calculate</button>
+		<p id="result"></p>
+	</div>
+	<div id="qunit"></div>
+	<div id="qunit-fixture"></div>
+	<script src="babysitter.js"></script>
+	<script src="https://code.jquery.com/qunit/qunit-2.0.1.js"></script>
+	<script src="test.js"></script>
+	<script src="listener.js"></script>
   </script>
 </body>
 </html>
