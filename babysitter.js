@@ -10,5 +10,10 @@ var babysit = {
 		if(timeStr.search('AM') > 0 && parseInt(timeStr) != 12){hours += 12}
 		
 		return hours;
+	},
+	
+	calcPay : function(startTimeStr, endTimeStr, bedTimeStr){
+		dollars = 24;
+		return dollars;
 	}
 };

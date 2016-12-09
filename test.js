@@ -15,3 +15,7 @@ QUnit.test("Test 3", function(assert){
 QUnit.test("Test 4", function(assert){
 	assert.equal(babysit.timeStrToHourNum('12AM'), 7, "At 12AM, 7 hours have passed since 5PM. 12AM is the only AM time when 12 hours do not need to be subtracted.");
 });
+
+QUnit.test("Test 5", function(assert){
+	assert.equal(babysit.calcPay('5PM', '7PM'), 24, "Wages for 2 hours are $24");
+});
