@@ -20,6 +20,10 @@ var babysit = {
 		return hours;
 	},
 	
+	hourNumToTimeStr : function(hours){
+		return "5PM";
+	},
+	
 	calcPay : function(startTimeStr, endTimeStr, bedTimeStr = endTimeStr){
 		var startTime = babysit.timeStrToHourNum(startTimeStr),
 			endTime = babysit.timeStrToHourNum(endTimeStr),

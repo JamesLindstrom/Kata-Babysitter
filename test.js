@@ -39,3 +39,7 @@ QUnit.test("Test 9", function(assert){
 	assert.equal(babysit.calcPay('4PM', '5AM', '9PM'), "Must not start before 5:00 PM. Must not end after 4:00 AM. ", "Errors must be handled properly.");
 	assert.equal(babysit.calcPay('8PM', '6PM'), "Start time must come before end time. ", "Errors must be handled properly.");
 });
+
+QUnit.test("Test 10", function(assert){
+	assert.equal(babysit.hourNumToTimeStr(5), "5PM", "This will be needed to revise error messages.");
+});
