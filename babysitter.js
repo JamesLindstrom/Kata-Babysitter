@@ -21,7 +21,8 @@ var babysit = {
 	},
 	
 	hourNumToTimeStr : function(hours){
-		return "5PM";
+		var timeStr = hours + "PM";
+		return timeStr;
 	},
 	
 	calcPay : function(startTimeStr, endTimeStr, bedTimeStr = endTimeStr){
