@@ -12,8 +12,12 @@ var babysit = {
 		return hours;
 	},
 	
-	calcPay : function(startTimeStr, endTimeStr, bedTimeStr){
-		dollars = 24;
+	calcPay : function(startTimeStr, endTimeStr, bedTimeStr = endTimeStr){
+		var startTime = babysit.timeStrToHourNum(startTimeStr);
+		var endTime = babysit.timeStrToHourNum(endTimeStr);
+		var bedTime = babysit.timeStrToHourNum(bedTimeStr);
+		
+		dollars = (endTime - startTime) * 12;
 		return dollars;
 	}
 };

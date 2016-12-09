@@ -17,5 +17,10 @@ QUnit.test("Test 4", function(assert){
 });
 
 QUnit.test("Test 5", function(assert){
-	assert.equal(babysit.calcPay('5PM', '7PM'), 24, "Wages for 2 hours are $24");
+	assert.equal(babysit.calcPay('5PM', '7PM'), 24, "Wages for 2 hours are $24.");
+});
+
+QUnit.test("Test 6", function(assert){
+	assert.equal(babysit.calcPay('5PM', '8PM'), 36, "Wages for 3 hours are $36.");
+	assert.equal(babysit.calcPay('6PM', '7PM'), 12, "Wages for 1 hour are $12. It needs to work with varying start times.");
 });
