@@ -2,6 +2,7 @@ var babysit = {
 	//5PM is the earliest time the babysitter will start.
 	//4AM is the latest time the babysitter will end.
 	earliestStart: 5,
+	latestEnd: 16,
 	
 	//Converts a string the represents a time (eg. "5PM") to an hour number that will be used by the program, starting with babysit.earliestStart as 0.
 	timeStrToHourNum : function(timeStr){
@@ -18,6 +19,13 @@ var babysit = {
 		var endTime = babysit.timeStrToHourNum(endTimeStr);
 		var bedTime = babysit.timeStrToHourNum(bedTimeStr);
 		var midnight = 12;
+		
+		//Check for bad inputs.
+		var error = "";
+		if(startTime < babysit.earliestStart){error += "Must not start before 5:00 PM. "}
+		if(endTime > babysit.latestEnd){error += "Must not end after 4:00 AM. "}
+		if(startTime >= endTime){error += "Start time must come before end time. "}
+		if(error){return error}
 		
 		var dollars;
 		
