@@ -21,7 +21,14 @@ var babysit = {
 	},
 	
 	hourNumToTimeStr : function(hours){
-		var timeStr = hours + "PM";
+		//Switch to AM is nessisary.
+		var suffix = "PM";
+		if(hours > 12){
+			hours -= 12;
+			suffix = "AM";
+		}
+		
+		var timeStr = hours + suffix;
 		return timeStr;
 	},
 	

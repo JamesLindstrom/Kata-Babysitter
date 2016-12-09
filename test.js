@@ -48,3 +48,8 @@ QUnit.test("Test 11", function(assert){
 	assert.equal(babysit.hourNumToTimeStr(7), "7PM", "7 should return 7PM");
 	assert.equal(babysit.hourNumToTimeStr(9), "9PM", "9 should return 9PM");
 });
+
+QUnit.test("Test 12", function(assert){
+	assert.equal(babysit.hourNumToTimeStr(13), "1AM", "13 should return 1PM");
+	assert.equal(babysit.hourNumToTimeStr(14), "2AM", "14 should return 2PM");
+});
