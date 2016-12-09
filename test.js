@@ -26,5 +26,9 @@ QUnit.test("Test 6", function(assert){
 });
 
 QUnit.test("Test 7", function(assert){
-	assert.equal(babysit.calcPay('5PM', '12PM', '8PM'), 68, "Wages after the child has gone to sleep are only $8.");
+	assert.equal(babysit.calcPay('5PM', '12PM', '8PM'), 68, "Wages after the child has gone to sleep are only $8 an hour.");
+});
+
+QUnit.test("Test 8", function(assert){
+	assert.equal(babysit.calcPay('5PM', '2AM', '8PM'), 100, "Wages after midnight are $16 an hour.");
 });

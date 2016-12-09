@@ -17,7 +17,17 @@ var babysit = {
 		var endTime = babysit.timeStrToHourNum(endTimeStr);
 		var bedTime = babysit.timeStrToHourNum(bedTimeStr);
 		
-		var dollars = (bedTime - startTime) * 12 + (endTime - bedTime) * 8;
+		var dollars;
+		
+		//Midnight will be calculated in case babysit.earliestStart is changed in the future.
+		var midnight = babysit.timeStrToHourNum("12AM");
+		
+		//If the end time is after midnight, it must be factored into the calculation.
+		if(endTime > midnight){
+			dollars = (bedTime - startTime) * 12 + (midnight - bedTime) * 8 + (endTime - midnight) * 16;
+		}else{
+			dollars = (bedTime - startTime) * 12 + (endTime - bedTime) * 8;
+		}
 		return dollars;
 	}
 };
