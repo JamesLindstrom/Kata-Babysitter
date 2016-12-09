@@ -30,7 +30,6 @@ var babysit = {
 		//If it's later than midnight...
 		if(hours > 12){hours -= 12;}
 		
-		
 		var timeStr = hours + suffix;
 		return timeStr;
 	},
@@ -47,6 +46,7 @@ var babysit = {
 		if(startTime < babysit.earliestStart){error += `Must not start before ${babysit.earliestStartStr}. `;}
 		if(endTime > babysit.latestEnd){error += `Must not end after ${babysit.latestEndStr}. `;}
 		if(startTime >= endTime){error += "Start time must come before end time. ";}
+		else if(bedTime < startTime || bedTime > endTime){error +="Bedtime must be between the beginning and the end of the session. ";}
 		if(error){return error;}
 		
 		var dollars;

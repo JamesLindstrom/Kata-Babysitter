@@ -53,6 +53,12 @@ QUnit.test("Test 12", function(assert){
 	assert.equal(babysit.hourNumToTimeStr(13), "1AM", "13 should return 1AM");
 	assert.equal(babysit.hourNumToTimeStr(14), "2AM", "14 should return 2AM");
 });
+
 QUnit.test("Test 13", function(assert){
 	assert.equal(babysit.hourNumToTimeStr(12), "12AM", "12 should return 12AM");
+});
+
+QUnit.test("Test 14", function(assert){
+	assert.equal(babysit.calcPay('6PM', '8PM', '9PM'), "Bedtime must be between the beginning and the end of the session. ", "Errors must be handled properly.");
+	assert.equal(babysit.calcPay('6PM', '8PM', '5PM'), "Bedtime must be between the beginning and the end of the session. ", "Errors must be handled properly.");
 });
