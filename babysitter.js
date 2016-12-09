@@ -1,8 +1,11 @@
 var babysit = {
 	init : function(){
 		//Set the earliest start time and latest end time.
-		babysit.earliestStart = babysit.timeStrToHourNum('5PM');
-		babysit.latestEnd = babysit.timeStrToHourNum('4AM');
+		babysit.earliestStartStr = '5PM';
+		babysit.latestEndStr = '4AM';
+		
+		babysit.earliestStart = babysit.timeStrToHourNum(babysit.earliestStartStr);
+		babysit.latestEnd = babysit.timeStrToHourNum(babysit.latestEndStr);
 	},
 	
 	//Hourly rates
@@ -33,6 +36,7 @@ var babysit = {
 	},
 	
 	calcPay : function(startTimeStr, endTimeStr, bedTimeStr = endTimeStr){
+		//Convert strings to numbers.
 		var startTime = babysit.timeStrToHourNum(startTimeStr),
 			endTime = babysit.timeStrToHourNum(endTimeStr),
 			bedTime = babysit.timeStrToHourNum(bedTimeStr),
@@ -40,13 +44,12 @@ var babysit = {
 		
 		//Check for bad inputs.
 		var error = "";
-		if(startTime < babysit.earliestStart){error += "Must not start before 5:00 PM. ";}
-		if(endTime > babysit.latestEnd){error += "Must not end after 4:00 AM. ";}
+		if(startTime < babysit.earliestStart){error += `Must not start before ${babysit.earliestStartStr}. `;}
+		if(endTime > babysit.latestEnd){error += `Must not end after ${babysit.latestEndStr}. `;}
 		if(startTime >= endTime){error += "Start time must come before end time. ";}
 		if(error){return error;}
 		
 		var dollars;
-		
 		//If the end time is after midnight, it must be factored into the calculation.
 		if(endTime > midnight){
 			dollars = 	(bedTime - startTime) * babysit.beforeBedRate + 
