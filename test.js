@@ -3,6 +3,11 @@ QUnit.test("Test 1", function(assert){
 });
 
 QUnit.test("Test 2", function(assert){
-	assert.equal(babysit.timeStrToHourNum('6PM'), 1, "6PM is the 2nd hour and should return 1.");
-	assert.equal(babysit.timeStrToHourNum('7PM'), 2, "6PM is the 3rd hour and should return 2.");
+	assert.equal(babysit.timeStrToHourNum('6PM'), 1, "At 6PM, 1 hour has passed since 5PM.");
+	assert.equal(babysit.timeStrToHourNum('7PM'), 2, "At 7PM, 2 hours have passed since 5PM.");
+});
+
+QUnit.test("Test 3", function(assert){
+	assert.equal(babysit.timeStrToHourNum('1AM'), 8, "At 1AM, 8 hours have passed since 5PM.");
+	assert.equal(babysit.timeStrToHourNum('2AM'), 9, "At 2AM, 9 hours have passed since 5PM.");
 });
