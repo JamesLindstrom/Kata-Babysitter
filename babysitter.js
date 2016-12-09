@@ -17,7 +17,7 @@ var babysit = {
 		var endTime = babysit.timeStrToHourNum(endTimeStr);
 		var bedTime = babysit.timeStrToHourNum(bedTimeStr);
 		
-		dollars = (endTime - startTime) * 12;
+		var dollars = (bedTime - startTime) * 12 + (endTime - bedTime) * 8;
 		return dollars;
 	}
 };
