@@ -15,18 +15,18 @@ var babysit = {
 		var hours = parseInt(timeStr);
 		
 		//If hours are in the AM (and it is not 12AM), add 12.
-		if(timeStr.search('AM') > 0 && parseInt(timeStr) != 12){hours += 12}
+		if(timeStr.search('AM') > 0 && parseInt(timeStr) != 12){hours += 12;}
 		
 		return hours;
 	},
 	
 	hourNumToTimeStr : function(hours){
-		//Switch to AM is nessisary.
 		var suffix = "PM";
-		if(hours > 12){
-			hours -= 12;
-			suffix = "AM";
-		}
+		//If it's midnight or later...
+		if(hours > 11){suffix = "AM";}
+		//If it's later than midnight...
+		if(hours > 12){hours -= 12;}
+		
 		
 		var timeStr = hours + suffix;
 		return timeStr;
@@ -40,10 +40,10 @@ var babysit = {
 		
 		//Check for bad inputs.
 		var error = "";
-		if(startTime < babysit.earliestStart){error += "Must not start before 5:00 PM. "}
-		if(endTime > babysit.latestEnd){error += "Must not end after 4:00 AM. "}
-		if(startTime >= endTime){error += "Start time must come before end time. "}
-		if(error){return error}
+		if(startTime < babysit.earliestStart){error += "Must not start before 5:00 PM. ";}
+		if(endTime > babysit.latestEnd){error += "Must not end after 4:00 AM. ";}
+		if(startTime >= endTime){error += "Start time must come before end time. ";}
+		if(error){return error;}
 		
 		var dollars;
 		
